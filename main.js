@@ -16,6 +16,11 @@ function creatImgs(target, num) {
 	const imgs = target.querySelectorAll('img');
 	let count = 0;
 	imgs.forEach((img) => {
+		//이미지 요소의 소스 이미지에 문제 발생시 대체이미지 처리
+		img.onerror = () => {
+			img.setAttribute('src', 'img/thumb1.jpg');
+		};
+
 		//해당 돔에 수반되는 소스이미지가 로딩완료시 실행되는 이벤트
 		img.onload = () => {
 			count++;
