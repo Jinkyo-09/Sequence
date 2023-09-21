@@ -11,14 +11,28 @@ img노드 생성
 src 속성 생성
 src 속성 노드에 value = img/pic0~100.jpg
 위 작업을 100번 반복을 돌리면서 append로 이미지 요소 반복 추가
+
+100분율 구하는 공식 
+현재 수치값 / 전체수치값 * 100 (백분율)
+현재 수치값 / 전체수치값 * 200 (이백분율)
 */
 
-for (let i = 0; i <= 200; i++) {
-	const section = document.querySelector('section');
+const section = document.querySelector('section');
 
+for (let i = 0; i <= 200; i++) {
 	const img = document.createElement('img');
 	const src = document.createAttribute('src');
 	src.value = `img/pic${i}.jpg`;
 	img.setAttributeNode(src);
 	section.append(img);
 }
+
+window.addEventListener('mousemove', (e) => {
+	const curPos = e.pageX;
+	const wid = window.innerWidth;
+	const percent = parseInt((curPos / wid) * 200);
+	console.log(percent);
+
+	//parseInt(숫자) : 실수에서 소수점 아랫값을 버려서 변수로 반환
+	//parseFloat(숫자) : 소수점 아래까지 있는 실수 반환
+});
