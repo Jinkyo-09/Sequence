@@ -18,13 +18,19 @@ src 속성 노드에 value = img/pic0~100.jpg
 */
 
 const section = document.querySelector('section');
+const imgs = creatImgs(section, 200);
+console.log(imgs);
 
-for (let i = 0; i <= 200; i++) {
-	const img = document.createElement('img');
-	const src = document.createAttribute('src');
-	src.value = `img/pic${i}.jpg`;
-	img.setAttributeNode(src);
-	section.append(img);
+//인수로 갯수를 받아서 동적으로 img를 생성해주는 함수
+function creatImgs(target, num) {
+	for (let i = 0; i < num; i++) {
+		const img = document.createElement('img');
+		const src = document.createAttribute('src');
+		src.value = `img/pic${i}.jpg`;
+		img.setAttributeNode(src);
+		target.append(img);
+	}
+	return target.querySelectorAll('img');
 }
 
 window.addEventListener('mousemove', (e) => {
