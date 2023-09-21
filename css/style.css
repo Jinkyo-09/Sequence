@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -47,8 +48,14 @@ aside {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 100px;
+  font-size: 80px;
   color: #fff;
+  opacity: 1;
+  transition: opacity 1.5s;
+  font-family: Orbitron;
+}
+aside.off {
+  opacity: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
